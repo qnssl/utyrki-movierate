@@ -1,4 +1,4 @@
-/* --- Общие Стили и Свечение --- */
+/* --- 1. Общие Стили и Сброс --- */
 body {
     background-color: #000;
     color: #fff;
@@ -7,10 +7,18 @@ body {
     padding: 0;
     min-height: 100vh;
     overflow-x: hidden; /* Предотвращаем горизонтальную прокрутку */
+    line-height: 1.6;
 }
 
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* --- 2. Эффект Свечения (Glow) --- */
 .glow-text {
-    /* Эффект свечения для текста */
+    /* Эффект свечения для заголовков */
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px rgba(255, 255, 255, 0.7);
     text-align: center;
     padding: 20px 0;
@@ -35,31 +43,205 @@ body {
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.8); /* Усиленное свечение при фокусе */
 }
 
-/* --- Позиционирование Буквы "U" --- */
+/* --- 3. Буква "U" на заднем плане --- */
 #u-logo {
-    position: fixed; /* Прикрепление к окну просмотра */
-    bottom: -150px; /* Смещаем часть буквы за край */
-    left: -100px; /* Смещаем часть буквы за край */
-    font-size: 600px; /* Очень большой размер */
+    position: fixed; 
+    bottom: -150px; 
+    left: -100px; 
+    font-size: 600px; 
     font-weight: bold;
     color: rgba(255, 255, 255, 0.05); /* Очень низкая прозрачность */
-    pointer-events: none; /* Не блокирует клики */
-    z-index: -1; /* На задний план */
-    /* Сильное свечение */
+    pointer-events: none; 
+    z-index: -1; 
     text-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 
                  0 0 40px rgba(255, 255, 255, 0.3);
 }
 
-/* --- Главный контент --- */
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
+/* --- 4. Секция Поиска --- */
 .search-section {
     margin-bottom: 40px;
+    position: relative;
 }
 
-/* --- Стили для модального окна и постеров (Добавьте позже) --- */
-/* ... (стили для модального окна) ... */
+#search-results {
+    position: absolute;
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: #111;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    z-index: 5;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+.search-result-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.search-result-item:hover {
+    background-color: #333;
+    text-shadow: 0 0 5px #fff;
+}
+
+/* --- 5. Карточки Фильмов (Главная страница) --- */
+.movie-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.movie-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    width: 250px;
+    text-align: center;
+    overflow: hidden;
+    padding-bottom: 15px;
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Сильное свечение при наведении */
+}
+
+.movie-card .poster {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.movie-card h3 {
+    margin: 10px 0 5px 0;
+}
+
+.movie-card .score {
+    font-size: 1.2em;
+    color: #00ff00; /* Светящийся зеленый для баллов */
+}
+
+.click-info {
+    font-size: 0.8em;
+    opacity: 0.6;
+}
+
+/* --- 6. Модальное Окно (Попап) --- */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 100; /* Выше всего */
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.8); 
+}
+
+.modal-content {
+    background-color: #111;
+    margin: 5% auto; 
+    padding: 30px;
+    border: 1px solid #333;
+    width: 90%; 
+    max-width: 600px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.5); 
+    position: relative;
+    max-height: 90vh; 
+    overflow-y: auto; 
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover, .close-button:focus {
+    color: #fff;
+    text-shadow: 0 0 10px #fff;
+    text-decoration: none;
+}
+
+/* --- 7. Форма Оценки --- */
+#rating-form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.rating-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.small-input {
+    width: 80px; 
+    text-align: center;
+    padding: 8px !important; 
+}
+
+.submit-button {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    box-shadow: 0 0 5px #fff;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.submit-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 15px #fff;
+}
+
+/* --- 8. Оценки Друзей --- */
+hr {
+    border-color: rgba(255, 255, 255, 0.1);
+    margin: 30px 0;
+}
+
+.user-rating-block {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.user-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.personal-score {
+    color: #00ff00; /* Светящийся зеленый для личного балла */
+    font-weight: bold;
+}
+
+.rating-details p {
+    margin: 3px 0;
+    padding-left: 10px;
+    font-size: 0.9em;
+}
+
+.score-value {
+    font-weight: bold;
+    color: #ddd;
+}
