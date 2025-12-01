@@ -1,0 +1,65 @@
+/* --- Общие Стили и Свечение --- */
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden; /* Предотвращаем горизонтальную прокрутку */
+}
+
+.glow-text {
+    /* Эффект свечения для текста */
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px rgba(255, 255, 255, 0.7);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 3em;
+}
+
+.glow-input {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2em;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Легкое свечение рамки */
+    transition: box-shadow 0.3s, border-color 0.3s;
+    box-sizing: border-box;
+}
+
+.glow-input:focus {
+    outline: none;
+    border-color: #fff;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8); /* Усиленное свечение при фокусе */
+}
+
+/* --- Позиционирование Буквы "U" --- */
+#u-logo {
+    position: fixed; /* Прикрепление к окну просмотра */
+    bottom: -150px; /* Смещаем часть буквы за край */
+    left: -100px; /* Смещаем часть буквы за край */
+    font-size: 600px; /* Очень большой размер */
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.05); /* Очень низкая прозрачность */
+    pointer-events: none; /* Не блокирует клики */
+    z-index: -1; /* На задний план */
+    /* Сильное свечение */
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 
+                 0 0 40px rgba(255, 255, 255, 0.3);
+}
+
+/* --- Главный контент --- */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.search-section {
+    margin-bottom: 40px;
+}
+
+/* --- Стили для модального окна и постеров (Добавьте позже) --- */
+/* ... (стили для модального окна) ... */
