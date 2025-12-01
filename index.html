@@ -22,6 +22,31 @@
         <div id="movie-list" class="movie-grid">
             </div>
     </main>
+
+    <div id="rating-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2 id="modal-movie-title" class="glow-text">Оценить фильм: [Название]</h2>
+        <form id="rating-form">
+            <input type="hidden" id="form-movie-id">
+            <input type="hidden" id="form-movie-title">
+            
+            <label for="user-name">Ваше имя:</label>
+            <input type="text" id="user-name" required class="glow-input" placeholder="Введите ваше имя">
+
+            <div id="criteria-fields">
+                </div>
+
+            <button type="submit" class="submit-button">Отправить оценку</button>
+        </form>
+
+        <hr>
+        <h3>Оценки пользователей:</h3>
+        <div id="user-ratings-list">
+            </div>
+
+    </div>
+</div>
     
     <div id="rating-modal" class="modal">
         </div>
